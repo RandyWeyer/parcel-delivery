@@ -30,15 +30,25 @@ namespace Parcel.Controllers
         // int myLength = int.Parse(myLengthString);
 
         ParcelVariable newParcel = new ParcelVariable();
-        newParcel.SetHeight(int.Parse(Request.Query["height"]));
-        newParcel.SetWeight(int.Parse(Request.Query["weight"]));
-        newParcel.SetWidth(int.Parse(Request.Query["width"]));
-        newParcel.SetLength(int.Parse(Request.Query["length"]));
-        // Console.WriteLine(newParcel.GetHeight());
-        // Console.WriteLine(newParcel.GetWidth());
-        // Console.WriteLine(newParcel.GetLength());
-        // Console.WriteLine(newParcel.GetWeight());
-        return View(newParcel);
+        Console.WriteLine(Request.Query["height"]);
+        if (Request.Query["height"] != "" && Request.Query["weight"] != "" && Request.Query["width"] != "" && Request.Query["length"] != "")
+        {
+          newParcel.SetHeight(int.Parse(Request.Query["height"]));
+          newParcel.SetWeight(int.Parse(Request.Query["weight"]));
+          newParcel.SetWidth(int.Parse(Request.Query["width"]));
+          newParcel.SetLength(int.Parse(Request.Query["length"]));
+          // Console.WriteLine(newParcel.GetHeight());
+          // Console.WriteLine(newParcel.GetWidth());
+          // Console.WriteLine(newParcel.GetLength());
+          // Console.WriteLine(newParcel.GetWeight());
+          return View(newParcel);
+
+        } else {
+          // MessageBox.Show("Please fill out all the boxes.", "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+          string error = "Please fill out all the boxes.";
+          return View("Form", error);
+
+      }
       }
     }
 }
