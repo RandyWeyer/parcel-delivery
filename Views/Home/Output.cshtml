@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Parcel Delivery</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  </head>
+  <body>
+    <h3>Your parcel is:</h3>
+    <ul>
+        <li>@Model.GetWidth() in width</li>
+        <li>@Model.GetLength() in length</li>
+        <li>@Model.GetWeight() in weight</li>
+        <li>@Model.GetHeight() in height</li>
+    </ul>
+    <h4>Your parcel's volume is @Model.Volume() and shipping cost will be @Model.CostToShip()</h4>
+  </body>
+</html>
